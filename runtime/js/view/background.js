@@ -39,49 +39,55 @@ var background = function (window) {
             // TODO 1:
             // this currently fills the background with an obnoxious yellow;
             // you should modify both the height and color to suit your game
-            var backgroundFill = draw.rect(canvasWidth,groundY,'blue');
+            var backgroundFill = draw.rect(canvasWidth,groundY,'#015482');
             background.addChild(backgroundFill);
             
-            // TODO 2: - Add a moon and starfield
+            // TODO 2: - Add a moon and starfield **
             
-            //var moon = draw.bitmap("img/fish.png"); 
-            //moon.x = 5;
-            //moon.y = 10;
-            //moon.scaleX = 10.0;
-            //moon.scaleY = 10.0;
-            //background.addChild(moon);
+            var moon = draw.bitmap("img/starfish.png");
+            moon.x = 300;
+            moon.y = 200;
+            moon.scaleX = 10.0;
+            moon.scaleY = 10.0;
+            background.addChild(moon);
             
-            // ground level sand
-            for (var i = 0; i < 5; i++){
-            var sand = draw.bitmap("img/Runtime_Sand.png");
-            sand.x = 50 * Math.random;
-            sand.y = groundY * Math.random;
-            sand.scaleX = .005;
-            sand.scaleY = .008;
-            background.addChild(sand);
+            // ground level sand **
+            
+            for (var i = 0; i < 100; i++){
+            var bubble = draw.bitmap("img/bubbles.png");
+            bubble.x = canvasWidth * Math.random;
+            bubble.y = groundY * Math.random;
+            bubble.scaleX = .002;
+            bubble.scaleY = .002;
+            background.addChild(bubble);
             }
             
 
             // TODO 4: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
             
-            for (var i = 0; i < 5; ++i) {
-                //var buildingHeight = 5;
-                //var building = draw.bitmap("img/Runtime_Obs2.webp");
-                //building.x = 200 * i;
-                //building.y = groundY - buildingHeight;
-                //background.addChild(building);
-                //buildings.push(building);
+           for (var i = 0; i < 9; i++) {
+                var buildingHeight = 230;
+                var building = draw.bitmap("img/Runtime_Obs2.webp");
+                building.x = 220 * i;
+                building.y = groundY - buildingHeight;
+                building.scaleX = .123;
+                building.scaleY = .123;
+                background.addChild(building);
+                buildings.push(building);
               }
             
             // TODO 3: Part 1 - Add a tree
             
-            tree = draw.bitmap("img/fish.png"); 
-            tree.x = 10;
-            tree.y = 100;
-            tree.scaleX = .025;
-            tree.scaleY= .025;
+            function addTree(x, y){
+            tree = draw.bitmap("img/fish2.webp"); 
+            tree.x = x;
+            tree.y = y;
+            tree.scaleX = .3;
+            tree.scaleY= .3;
             background.addChild(tree);
-            
+            }
+            addTree (10,100);
+
         } // end of render function - DO NOT DELETE
         
         
@@ -101,6 +107,13 @@ var background = function (window) {
             
             // TODO 4: Part 2 - Parallax
             
+            for (var i = 0; i < buildings.length; i++) {
+                var eachElement = buildings[i];
+                eachElement.x -= 0.5; 
+                if (eachElement.x < -400){
+                    eachElement.x = canvasWidth;
+                }
+              }
 
         } // end of update function - DO NOT DELETE
         

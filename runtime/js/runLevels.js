@@ -27,24 +27,28 @@ var runLevels = function (window) {
     sawBladeHitZone.x = x;
     sawBladeHitZone.y = y;
     game.addGameItem(sawBladeHitZone);
-    var obstacleImage = draw.bitmap("img/sawblade.png");
+    var obstacleImage = draw.bitmap("img/shell..webp");
     sawBladeHitZone.addChild(obstacleImage);
-    obstacleImage.x = -25;
-    obstacleImage.y = -25;
+    obstacleImage.x = -33;
+    obstacleImage.y = -33;
+    obstacleImage.scaleX = .065
+    obstacleImage.scaleY = .065;
     sawbladeImage.x = -hitZone;
     sawbladeImage.y = -hitZone;
     }
     createSawblades(700, groundY- 25);
+    createSawblades(800, groundY - 100);
+    // **
 
-    // creates enemey
+    // todo 7 creates enemey
     var enemy = game.createGameItem("enemy", 25);
-    var redSquare = draw.rect(50, 50, "yellow");
-    redSquare.x = -25;
-    redSquare.y = -25;
-    enemy.addChild(redSquare);
-    enemy.x = 400;
-    enemy.y = groundY - 50;
-    game.addGameItem(enemy);
+    var jellyFish = draw.bitmap("img/enemy.png");
+    jellyFish.x -= 25;
+    jellyFish.y -= 25;
+    enemy.addChild(jellyFish);
+    enemy.x = 800;
+    enemy.y = groundY - 200;
+    game.addGameItem(enemy); 
 
 
     function startLevel() {
