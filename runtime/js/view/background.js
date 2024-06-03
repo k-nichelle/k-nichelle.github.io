@@ -51,15 +51,15 @@ var background = function (window) {
             moon.scaleY = 10.0;
             background.addChild(moon);
             
-            // ground level sand **
+            // bubbles all over the screen **
             
             for (var i = 0; i < 100; i++){
-            var bubble = draw.bitmap("img/bubbles.png");
-            bubble.x = canvasWidth * Math.random;
-            bubble.y = groundY * Math.random;
-            bubble.scaleX = .002;
-            bubble.scaleY = .002;
-            background.addChild(bubble);
+                var bubble = draw.bitmap("img/bubbles.png");
+                bubble.x = canvasWidth * Math.random;
+                bubble.y = groundY * Math.random;
+                bubble.scaleX = .002;
+                bubble.scaleY = .002;
+                background.addChild(bubble);
             }
             
 
