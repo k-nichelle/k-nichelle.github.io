@@ -141,7 +141,7 @@ var runLevels = function (window) {
               createEnemy(current.x, current.y);
             }else if (current.type === "reward"){
               createReward(current.x, current.y);
-            }else if (current.typw === "marker"){
+            }else if (current.type === "marker"){
               createMarker(current.x, current.y);
             }
         }
