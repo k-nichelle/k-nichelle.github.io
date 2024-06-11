@@ -6,7 +6,7 @@ body {
 #board {
   width: 440px;
   height: 440px;
-  border: 1px solid white;
+  border: 5px solid white;
   background-color: black;
 }
 
@@ -23,15 +23,15 @@ body {
 }
 
 .snake {
-  background-color: green;
+  background-color: rgb(56, 96, 56);
   z-index: 2;
 }
 
 #snake-head {
-  background-color: darkgreen;
+  background-color: rgb(92, 154, 88);
 }
 
 .apple {
-  background-color: red;
+  background-color: gold;
   z-index: 1;
 }
