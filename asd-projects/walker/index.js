@@ -11,7 +11,7 @@ function runProgram(){
   var FRAME_RATE = 60;
   var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
 
-  // magic keys 
+  // magic numbers 
   const KEY = {
     LEFT: 37,
     UP: 38,
