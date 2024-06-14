@@ -97,13 +97,13 @@ function runProgram(){
     var rightWall = $("#board").width(); //finds the width of the board element and assigns it to the var
     var bottomWall = $("#board").height(); //finds the height of the board element and assigns it to the var
     
-    if (walker.x === rightWall){  
+    if (walker.x >= rightWall){  
       walker.x -= walker.speedX;
-    }else if(walker.y === bottomWall){
+    }else if(walker.y >= bottomWall){
       walker.y -= walker.speedY;
-    }else if(walker.x === 0){
+    }else if(walker.x <= 0){
       walker.x -= walker.speedX;
-    }else if(walker.y === 0){
+    }else if(walker.y <= 0){
       walker.y -= walker.speedY;
     }
   }

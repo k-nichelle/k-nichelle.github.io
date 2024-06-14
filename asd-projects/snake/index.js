@@ -112,13 +112,13 @@ function moveSnake() {
   column/row properties. 
   
   */
-  for (var i = snake.body.length; i >= 0; i--) {
+  for (var i = snake.body.length -1; i > 0; i--) {
     var snakeSquare = snake.body[i];
 
-    var nextSnakeSquare = snakeSquare-1;
-    var nextRow = snakeSquare.row-1;
-    var nextColumn = snakeSquare.column-1;
-    var nextDirection = snakeSquare.direction-1;
+    var nextSnakeSquare = snake.body[i - 1];
+    var nextRow = nextSnakeSquare.row;
+    var nextColumn = nextSnakeSquare.column;
+    var nextDirection = nextSnakeSquare.direction;
 
     snakeSquare.direction = nextDirection;
     snakeSquare.row = nextRow;
@@ -178,7 +178,7 @@ function hasCollidedWithApple() {
   */
   if(apple.row  === snake.head.row && apple.column === snake.head.column){
     return true;
-  }
+  }else
   return false;
 }
 
@@ -226,8 +226,14 @@ function hasCollidedWithSnake() {
   head and each part of the snake's body also knows its own row and column.
   
   */
-
-  return false;
+  for (var i = 1; i < snake.body.length; i++){
+  
+    var snakeSquare = snake.body[i] ;
+    if (snake.head.column === snakeSquare.column && snake.head.row === snakeSquare.row){
+    return true;
+  }
+}
+  
 }
 
 function endGame() {
@@ -312,7 +318,7 @@ function makeSnakeSquare(row, column) {
 function handleKeyDown(event) {
   // TODO 6a: make the handleKeyDown function register which key is pressed
   activeKey = event.which;
-  console.log(activeKey);
+  //console.log(activeKey);
 }
 
 /* Given a gameSquare (which may be a snakeSquare or the apple), position
@@ -347,6 +353,14 @@ function getRandomAvailablePosition() {
     not occupied by a snakeSquare in the snake's body. If it is then set 
     spaceIsAvailable to false so that a new position is generated.
     */
+    
+    for (var i = 0; i < snake.body.length; i++){
+  
+      var snakeSquare = snake.body[i] ;
+      if (apple.column === snakeSquare.column && apple.row === snakeSquare.row){
+      return false;
+    }
+  }
   }
 
   return randomPosition;
