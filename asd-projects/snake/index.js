@@ -358,12 +358,12 @@ function getRandomAvailablePosition() {
       var snakeSquare = snake.body[i];
       if (apple.column === snakeSquare.column && apple.row === snakeSquare.row){
       spaceIsAvailable = false;
-    }
-  }
-  }
-
+      }
+      }
   return randomPosition;
+  }
 }
+  
 
 function calculateHighScore() {
   // retrieve the high score from session storage if it exists, or set it to 0
