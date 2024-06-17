@@ -227,7 +227,6 @@ function hasCollidedWithSnake() {
   
   */
   for (var i = 1; i < snake.body.length; i++){
-  
     var snakeSquare = snake.body[i] ;
     if (snake.head.column === snakeSquare.column && snake.head.row === snakeSquare.row){
     return true;
@@ -318,7 +317,7 @@ function makeSnakeSquare(row, column) {
 function handleKeyDown(event) {
   // TODO 6a: make the handleKeyDown function register which key is pressed
   activeKey = event.which;
-  //console.log(activeKey);
+  console.log(activeKey);
 }
 
 /* Given a gameSquare (which may be a snakeSquare or the apple), position
@@ -355,10 +354,10 @@ function getRandomAvailablePosition() {
     */
     
     for (var i = 0; i < snake.body.length; i++){
-  
-      var snakeSquare = snake.body[i] ;
+      debugger;
+      var snakeSquare = snake.body[i];
       if (apple.column === snakeSquare.column && apple.row === snakeSquare.row){
-      return false;
+      spaceIsAvailable = false;
     }
   }
   }
