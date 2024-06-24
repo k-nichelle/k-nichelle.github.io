@@ -32,7 +32,7 @@ async function quickSort (array, left, right){
         var index = await partition(array, left, right);
         if (left < (index - 1)){
             await quickSort (array, left, index -1);
-        }else if (index < right){
+        }if (index < right){
             await quickSort (array, index, right);
         }
     }
