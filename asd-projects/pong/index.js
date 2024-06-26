@@ -71,11 +71,11 @@ function runProgram(){
 
     // bounces the ball off of the paddle 
     if (doCollide(ball, rightPaddle)){
-      ball.x *= ball.speedX;
-      ball.y *= ball.speedY;
+      ball.speedX *= -1;
+      //ball.speedY *= -1;
     }else if (doCollide(ball, leftPaddle)){
-      ball.x *= ball.speedX;
-      ball.y *= ball.speedY;
+      ball.speedX *= -1;
+      //ball.speedY *= -1;
     }
   }
   
@@ -139,42 +139,51 @@ function runProgram(){
   function wallCollision (gameItem){
     if (gameItem.x <= 0){
       gameItem.x = 0;
-      gameItem.x *= gameItem.speedX;
-      gameItem.y *= gameItem.speedY;
+      gameItem.speedX *= -1;
+      gameItem.speedY *= -1;
     
     }else if(gameItem.y <= 0 ){
+      if (gameItem === rightPaddle || gameItem === leftPaddle){
+        gameItem.y = 0;
+      }else{
       gameItem.y = 0;
-      gameItem.x *= gameItem.speedX;
-      gameItem.y *= gameItem.speedY;
+      gameItem.speedX *= -1;
+      gameItem.speedY *= -1;
+    }
     
     
     }else if ((gameItem.x + gameItem.width) > BOARD_WIDTH){
       gameItem.x = BOARD_WIDTH - gameItem.width;
-      gameItem.x *= gameItem.speedX;
-      gameItem.y *= gameItem.speedY;
+      gameItem.speedX *= -1;
+      gameItem.speedY *= -1;
     
     
     }else if ((gameItem.y + gameItem.height) > BOARD_HEIGHT){
+      if (gameItem === rightPaddle || gameItem === leftPaddle){
+        gameItem.y = BOARD_HEIGHT - gameItem.height;
+      }else{
       gameItem.y = BOARD_HEIGHT - gameItem.height;
-      gameItem.x *= gameItem.speedX;
-      gameItem.y *= gameItem.speedY;
-    
+      gameItem.speedX *= -1;
+      gameItem.speedY *= -1;
+      }
     }
 
     // checks if a player scores and updates it
     if (ball.x === 0){
       playerOneScore++;
-      $("#score1").text("Player 1: " + playerOneScore);
+      $("#score1").text("Player 1: " + playerOneScore + " points");
       startBall();
         if (playerOneScore === 11){
           endGame();
+          $("#winner").text("Player 1 Won!");
         }
     }else if (ball.x === (BOARD_WIDTH - ball.width)){
       playerTwoScore++;
-      $("#score2").text("Player 2: " + playerTwoScore);
+      $("#score2").text("Player 2: " + playerTwoScore + " points");
       startBall();
          if (playerTwoScore === 11){
           endGame();
+          $("#winner").text("Player 2 Won!");
          }
     }
 
