@@ -1,21 +1,66 @@
 
 body {
-  background-color: darkgreen;
+  background-color: rgb(223, 227, 243);
 }
 
 #board {
   width: 440px;
   height: 440px;
-  border: 1px solid white;
-  background-color: black;
+  border: 8px solid rgb(0, 10, 87);
+  background-color: rgb(107, 125, 243);
   position: relative;
 }
 
-#gameItem {
-  background-color: teal;
-  width: 50px;
-  height: 50px;
+#line1 {
+  border: none;
+  border-right: 7px dotted rgb(255, 255, 255);
+  height: 440px;
   position: absolute;
-/*   left: 100px; */  /* Uncomment if you want to set a "starting" position */
-/*   top: 100px;  */  /* Uncomment if you want to set a "starting" position */
+  left: 210px; /* Uncomment if you want to set a "starting" position */
+  top: 0px;   /* Uncomment if you want to set a "starting" position */
+
+}
+
+#line2 {
+  border: none;
+  border-top: 7px dotted rgb(255, 255, 255);
+  width: 440px;
+  position: absolute;
+  top: 210px;   
+
+}
+
+#score1, #score2{
+  color : black;
+  font-family : 'Franklin Gothic Medium', Cochin, Georgia, Times, 'Times New Roman', serif ;
+}
+
+#ball{
+  position: absolute;
+  background-color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  left: 150px;
+  top: 150px;
+}
+
+#leftPaddle{
+  position: absolute;
+  background-color: rgb(110, 8, 56);
+  width: 20px;
+  height: 80px;
+  border-radius: 10px;
+  top: 175px;
+  left: 15px;
+}
+
+#rightPaddle{
+  position: absolute;
+  background-color: rgb(247, 218, 71);
+  width: 20px;
+  height: 80px;
+  border-radius: 10px;
+  top: 175px;
+  left: 405px;
 }
